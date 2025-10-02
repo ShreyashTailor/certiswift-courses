@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -23,18 +23,18 @@ export default function CourseRatingComponent({ courseId, courseName }: CourseRa
   const [userName, setUserName] = useState("")
   const [loading, setLoading] = useState(false)
 
-  useEffect(() => {
-    loadRatings()
-  }, [courseId])
-
-  const loadRatings = async () => {
+  const loadRatings = useCallback(async () => {
     try {
       const data = await getCourseRatings(courseId)
       setRatings(data)
     } catch (error) {
       console.error('Failed to load ratings:', error)
     }
-  }
+  }, [courseId])
+
+  useEffect(() => {
+    loadRatings()
+  }, [courseId, loadRatings])
 
   const handleSubmitRating = async () => {
     if (!userName.trim()) {
@@ -59,7 +59,7 @@ export default function CourseRatingComponent({ courseId, courseName }: CourseRa
       } else {
         toast.error("Failed to submit review. Please try again.")
       }
-    } catch (error) {
+    } catch {
       toast.error("Failed to submit review. Please try again.")
     } finally {
       setLoading(false)
@@ -243,7 +243,7 @@ export default function CourseRatingComponent({ courseId, courseName }: CourseRa
                   </div>
                   {rating.review && (
                     <p className="text-sm text-foreground/90 leading-relaxed">
-                      "{rating.review}"
+                      {rating.review}
                     </p>
                   )}
                 </CardContent>

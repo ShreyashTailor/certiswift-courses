@@ -15,7 +15,6 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Badge } from "@/components/ui/badge"
 import { MessageSquare, Bug, HelpCircle, Mail, Send } from "lucide-react"
 import { toast } from "sonner"
 
@@ -68,7 +67,7 @@ export default function SupportDrawer() {
       const data = await response.json()
       
       return data.Status === 0 && data.Answer && data.Answer.length > 0
-    } catch (error) {
+    } catch {
       // If DNS check fails, allow common domains
       const commonDomains = ['gmail.com', 'yahoo.com', 'outlook.com', 'hotmail.com']
       const domain = email.split('@')[1]?.toLowerCase()

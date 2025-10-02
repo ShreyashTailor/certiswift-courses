@@ -1,19 +1,14 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
 import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
 import { 
   Trophy, 
   BookOpen, 
-  Clock, 
-  Star, 
-  Target, 
   TrendingUp,
   Award,
-  Calendar,
   Heart,
   Play
 } from "lucide-react"
@@ -30,11 +25,7 @@ export default function LearningDashboard({ userId }: DashboardProps) {
   const [courses, setCourses] = useState<Course[]>([])
   const [loading, setLoading] = useState(true)
 
-  useEffect(() => {
-    loadDashboardData()
-  }, [userId])
-
-  const loadDashboardData = async () => {
+  const loadDashboardData = useCallback(async () => {
     setLoading(true)
     try {
       const [progressData, achievementsData, favoritesData, coursesData] = await Promise.all([
@@ -53,7 +44,11 @@ export default function LearningDashboard({ userId }: DashboardProps) {
     } finally {
       setLoading(false)
     }
-  }
+  }, [userId])
+
+  useEffect(() => {
+    loadDashboardData()
+  }, [loadDashboardData])
 
   const completedCourses = progress.filter(p => p.completed).length
   const inProgressCourses = progress.filter(p => !p.completed && p.progress_percentage > 0).length
