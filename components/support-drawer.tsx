@@ -278,7 +278,7 @@ export default function SupportDrawer() {
               Contact Support
             </DrawerTitle>
             <DrawerDescription>
-              Found a bug or have a question? We're here to help! Fill out the form below and we'll get back to you as soon as possible.
+              Found a bug or have a question? We&apos;re here to help! Fill out the form below and we&apos;ll get back to you as soon as possible.
               <br />
               <span className="text-primary font-medium">Email: help@certiswift.in</span> | 
               <span className="text-primary font-medium"> Discord: </span>

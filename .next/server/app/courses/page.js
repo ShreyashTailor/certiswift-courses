@@ -2,7 +2,7 @@ var R=require("../../chunks/ssr/[turbopack]_runtime.js")("server/app/courses/pag
 R.c("server/chunks/ssr/0f957_96ea2427._.js")
 R.c("server/chunks/ssr/[root-of-the-server]__e8a2741f._.js")
 R.c("server/chunks/ssr/course-page-certiswift_app_b33b0cd6._.js")
-R.c("server/chunks/ssr/0f957_824ba002._.js")
+R.c("server/chunks/ssr/0f957_5ba5163c._.js")
 R.c("server/chunks/ssr/[root-of-the-server]__2ed22bdc._.js")
 R.c("server/chunks/ssr/0f957_next_dist_client_components_4def8c85._.js")
 R.c("server/chunks/ssr/0f957_next_dist_client_components_builtin_forbidden_d7a295b9.js")

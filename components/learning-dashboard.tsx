@@ -153,7 +153,7 @@ export default function LearningDashboard({ userId }: DashboardProps) {
           </div>
           <Progress value={totalProgress} className="h-3" />
           <p className="text-xs text-muted-foreground">
-            You're doing amazing! Keep up the great work on your learning journey.
+            You&apos;re doing amazing! Keep up the great work on your learning journey.
           </p>
         </CardContent>
       </Card>
@@ -166,7 +166,7 @@ export default function LearningDashboard({ userId }: DashboardProps) {
               <Play className="w-5 h-5 text-blue-500" />
               Current Progress
             </CardTitle>
-            <CardDescription>Courses you're actively working on</CardDescription>
+            <CardDescription>Courses you&apos;re actively working on</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             {progress.length === 0 ? (
